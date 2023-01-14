@@ -3,12 +3,11 @@ kind: Service
 metadata:
   name: goserver-service
 spec:
-  #selector é responsável por filtrar todos os pods que irão incorporar esse serviço
   selector:
     app: goserver
-  type: ClusterIP
+  type: LoadBalancer #tem a capacidade de gerar um ip além da porta de acesso nos nodes, permitindo assim, acessos externos
   ports:
   - name: goserver-service
-    port: 80 #porta do service
-    targetPort: 8000 #porta do container
+    port: 80
+    targetPort: 8000
     protocol: TCP
