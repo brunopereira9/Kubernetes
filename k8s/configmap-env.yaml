@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: goserver-env
+data:
+  app_name: "GO Server With Kubernetes"
+  app_version: "vX.X.X - With ConfigMap"

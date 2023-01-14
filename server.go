@@ -1,6 +1,10 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+	"os"
+)
 
 func main() {
 	http.HandleFunc("/", Hello)
@@ -8,5 +12,11 @@ func main() {
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Testando replicaset!"))
+
+	version := os.Getenv("VERSION")
+	appName := os.Getenv("APP_NAME")
+
+	w.Write([]byte("<h1>This is a test server!</h1>"))
+	fmt.Fprintf(w, "<p><b>System version:</b> %s</p>", version)
+	fmt.Fprintf(w, "<p><b>App Name:</b> %s</p>", appName)
 }
