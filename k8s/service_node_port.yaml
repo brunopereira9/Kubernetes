@@ -5,10 +5,11 @@ metadata:
 spec:
   selector:
     app: goserver
-  type: NodePort
+  type: NodePort #gera uma porta dentro de todos os meus nodes 
   ports:
   - name: goserver-service
     port: 80
     targetPort: 8000
     protocol: TCP
-    nodePort: 30001 #range 30.000 ~ 32.767
+    # porta que será acessada em qualquer node e redirecionada para o serviço
+    nodePort: 30001 #range 30.000 ~ 32.767 
